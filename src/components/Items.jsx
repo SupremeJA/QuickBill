@@ -11,7 +11,10 @@ const Items = ({ item, onDelete }) => {
 
         <p className="text-md text-slate-500">₦ {item.price}</p>
       </div>
-      <a className="text-2xl" onClick={() => onDelete(item.id)}>
+      <a
+        className="text-2xl hover:text-red-500"
+        onClick={() => onDelete(item.id)}
+      >
         <MdDeleteForever />
       </a>
     </div>

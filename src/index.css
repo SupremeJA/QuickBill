@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+    --color-whisper: #f9f8f5;
+    --color-mineshaft: #2d2d2d;
+}
+
 label {
     @apply block text-sm font-medium text-gray-700 mb-1;
 }
