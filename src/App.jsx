@@ -14,7 +14,7 @@ function App() {
     setItems(items.filter((item) => item.id !== id));
   };
   return (
-    <div className="flex flex-col md:flex-row justify-center w-full max-h-screen py-6 gap-10 ">
+    <div className="flex flex-col md:flex-row md:justify-center w-full max-h-screen py-6 gap-10 ">
       <Editor
         onAdd={addItem}
         onDelete={deleteItm}

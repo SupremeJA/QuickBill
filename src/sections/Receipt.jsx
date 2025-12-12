@@ -1,9 +1,12 @@
+import { useRef } from "react";
 import ReceiptItem from "../components/ReceiptItem";
+import ReceiptButton from "../components/ReceiptButton";
 
 const Receipt = ({ items, cName, bName }) => {
+  const receiptref = useRef(null);
   return (
-    <section className="w-full md:w-[40%] md:max-w-[500px] text-slate-700 bg-slate-200 rounded-xl p-6 shadow-md">
-      <div className="p-10 bg-white rounded-xl shadow-xl/20">
+    <section className="w-full md:w-[40%] md:max-w-[500px] h-full text-slate-700 bg-slate-200 rounded-xl p-6 shadow-md">
+      <div ref={receiptref} className="p-10 bg-white rounded-xl shadow-xl/20">
         <div className="mb-6">
           <h1 className="text-2xl font-bold">Hello {cName}</h1>
           <p>Here's your receipt from {bName} </p>
@@ -14,7 +17,7 @@ const Receipt = ({ items, cName, bName }) => {
 
           {items && items.length > 0
             ? items.map((item) => <ReceiptItem key={item.id} item={item} />)
-            : "null"}
+            : "---"}
         </div>
 
         <span className="flex justify-between font-bold text-lg border-t-2 border-slate-500 pt-4 mt-6">
@@ -27,6 +30,7 @@ const Receipt = ({ items, cName, bName }) => {
           </p>
         </span>
       </div>
+      <ReceiptButton ref={receiptref} customerName={cName} />
     </section>
   );
 };

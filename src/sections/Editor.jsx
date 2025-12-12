@@ -21,8 +21,8 @@ const Editor = ({ onAdd, onDelete, items, setCName, setBName }) => {
   };
 
   return (
-    <section className=" flex flex-col gap-10 p-10 rounded-xl shadow-md">
-      <form className="flex flex-col">
+    <section className="flex flex-col gap-10 p-10 rounded-xl shadow-xl/20">
+      <form onSubmit={handleItems} className="flex flex-col">
         <div className="mb-4">
           <label>Business Name</label>
           <input
@@ -30,6 +30,7 @@ const Editor = ({ onAdd, onDelete, items, setCName, setBName }) => {
             placeholder="e.g. Mama Nkechi Foods"
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             onChange={(e) => setBName(e.target.value)}
+            required
           />
         </div>
 
@@ -46,18 +47,17 @@ const Editor = ({ onAdd, onDelete, items, setCName, setBName }) => {
                   hover:file:bg-violet-100"
           />
         </div>
-      </form>
-      <div>
-        <label>Customer Name</label>
-        <input
-          type="text"
-          placeholder="e.g. John Doe"
-          className="generalInput"
-          onChange={(e) => setCName(e.target.value)}
-        />
 
-        <form onSubmit={handleItems} className="mt-4">
-          <div className="flex gap-2">
+        <div>
+          <label>Customer Name</label>
+          <input
+            type="text"
+            placeholder="e.g. John Doe"
+            className="generalInput"
+            onChange={(e) => setCName(e.target.value)}
+          />
+
+          <div className="flex gap-2 mt-4">
             <Input
               type={"text"}
               placeholder={"Item name"}
@@ -82,8 +82,8 @@ const Editor = ({ onAdd, onDelete, items, setCName, setBName }) => {
           <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all w-32">
             Add Item
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
 
       <div className="p-5 rounded-xl max-h-70 overflow-y-auto">
         {items &&
