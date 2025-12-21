@@ -4,7 +4,12 @@ import { Editor, Receipt } from "./sections";
 function App() {
   const [items, setItems] = useState([]);
   const [cName, setCName] = useState("");
-  const [bName, setBName] = useState("");
+  const [bName, setBName] = useState(() => {
+    const saved = localStorage.getItem("businessName");
+    return saved || "";
+  });
+
+  const [logo, setLogo] = useState(null);
 
   const addItem = (newItem) => {
     setItems([...items, newItem]);
@@ -21,8 +26,10 @@ function App() {
         items={items}
         setCName={setCName}
         setBName={setBName}
+        bName={bName}
+        setLogo={setLogo}
       />
-      <Receipt items={items} cName={cName} bName={bName} />
+      <Receipt items={items} cName={cName} bName={bName} logo={logo} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import ReceiptItem from "../components/ReceiptItem";
 import ReceiptButton from "../components/ReceiptButton";
 
-const Receipt = ({ items, cName, bName }) => {
+const Receipt = ({ items, cName, bName, logo }) => {
   const receiptref = useRef(null);
   return (
     <section className="w-full md:w-[40%] md:max-w-[500px] h-full text-mineshaft bg-slate-200 rounded-xl p-6 shadow-md">
@@ -14,7 +14,7 @@ const Receipt = ({ items, cName, bName }) => {
           <div className="flex justify-between items-center">
             <div className="w-10 h-10 border-2 border-slate-500 rounded-full overflow-hidden relative">
               <img
-                src="https://placehold.co/400x400?text=Logo"
+                src={logo || "https://placehold.co/400x400?text=Logo"}
                 alt={`${bName} logo`}
                 className="w-full h-full object-cover"
               />
