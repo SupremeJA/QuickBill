@@ -46,7 +46,8 @@ const Editor = ({
           <label>Business Name</label>
           <input
             type="text"
-            placeholder={bName || "e.g. Mama Nkechi Foods"}
+            placeholder="e.g mama nkechi foods"
+            value={bName || ""}
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             onChange={(e) => setBName(e.target.value)}
             required
